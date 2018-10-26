@@ -27,7 +27,30 @@ WHERE {
 ORDER BY ?pid
 ```
 
-## Example 2: Show all predicates and objects related to a subject (good for exploration) 
+## Example 2: Display list of all Active (non-deleted) items in a collection, along with derivatives (good for checking)
+```sparql
+
+PREFIX islandora-rels-ext: <http://islandora.ca/ontology/relsext#>
+
+SELECT ?pid ?label ?id ?state ?derivs
+FROM <#ri>
+WHERE {
+
+?pid <fedora-rels-ext:isMemberOfCollection> <info:fedora/macrepo:85282> ;
+	<fedora-model:label> ?label ;
+	<dc:identifier> ?id ;
+<info:fedora/fedora-system:def/model#state> ?state ;
+<info:fedora/fedora-system:def/model#state> <info:fedora/fedora-system:def/model#Active>;
+<info:fedora/fedora-system:def/view#disseminates> ?derivs
+
+}
+
+ORDER BY ?pid
+```
+
+
+
+## Example 3: Show all predicates and objects related to a subject (good for exploration) 
 
 ```sparql
 
