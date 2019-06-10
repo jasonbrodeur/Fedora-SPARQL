@@ -66,6 +66,27 @@ WHERE {
 
 }
 ```
+## Example 4: List all images within the map collection of the Digital Archive
+Assumes that all items from the Map Collection use the large image content model (and that other collections aren't using it)
+
+```sparql
+
+PREFIX islandora-rels-ext: <http://islandora.ca/ontology/relsext#>
+
+SELECT ?pid ?label ?parent
+FROM <#ri>
+WHERE {
+
+?pid <info:fedora/fedora-system:def/model#hasModel> <info:fedora/islandora:sp_large_image_cmodel> ;
+    <fedora-model:label> ?label ;
+<info:fedora/fedora-system:def/model#state> ?state ;
+<info:fedora/fedora-system:def/relations-external#isMemberOfCollection> ?parent ;
+<info:fedora/fedora-system:def/model#state> <info:fedora/fedora-system:def/model#Active> ;
+
+}
+
+ORDER BY ?pid
+```
 
 # Resources
 ## Islandora-specific
