@@ -88,6 +88,27 @@ WHERE {
 ORDER BY ?pid
 ```
 
+## Example 5: List all collections within the Digital Archive and their parents
+
+```sparql
+
+PREFIX islandora-rels-ext: <http://islandora.ca/ontology/relsext#>
+
+SELECT ?pid ?label ?parent
+FROM <#ri>
+WHERE {
+
+?pid <info:fedora/fedora-system:def/model#hasModel> <info:fedora/islandora:collectionCModel> ;
+    <fedora-model:label> ?label ;
+<info:fedora/fedora-system:def/model#state> ?state ;
+<info:fedora/fedora-system:def/relations-external#isMemberOfCollection> ?parent ;
+<info:fedora/fedora-system:def/model#state> <info:fedora/fedora-system:def/model#Active> ;
+
+}
+
+ORDER BY ?pid
+```
+
 # Resources
 ## Islandora-specific
 https://islandora.ca/sites/default/files/Scripts%20and%20Tricks%20to%20Improve%20Your%20Repo.pdf
