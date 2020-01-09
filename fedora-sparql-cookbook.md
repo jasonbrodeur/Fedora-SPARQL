@@ -73,12 +73,13 @@ Assumes that all items from the Map Collection use the large image content model
 
 PREFIX islandora-rels-ext: <http://islandora.ca/ontology/relsext#>
 
-SELECT ?pid ?label ?parent
+SELECT ?pid ?label ?parent ?id
 FROM <#ri>
 WHERE {
 
 ?pid <info:fedora/fedora-system:def/model#hasModel> <info:fedora/islandora:sp_large_image_cmodel> ;
     <fedora-model:label> ?label ;
+    <dc:identifier> ?id ;
 <info:fedora/fedora-system:def/model#state> ?state ;
 <info:fedora/fedora-system:def/relations-external#isMemberOfCollection> ?parent ;
 <info:fedora/fedora-system:def/model#state> <info:fedora/fedora-system:def/model#Active> ;
