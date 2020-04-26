@@ -88,6 +88,27 @@ WHERE {
 
 ORDER BY ?pid
 ```
+## Example 4b: List all images within the map collection of the Digital Archive - no title, no parent
+Assumes that all items from the Map Collection use the large image content model (and that other collections aren't using it). Use this version of the script instead of Example 4 when you need to split into a list -- the title field may have commas in it.
+
+```sparql
+
+PREFIX islandora-rels-ext: <http://islandora.ca/ontology/relsext#>
+
+SELECT ?pid ?id
+FROM <#ri>
+WHERE {
+
+?pid <info:fedora/fedora-system:def/model#hasModel> <info:fedora/islandora:sp_large_image_cmodel> ;
+    <dc:identifier> ?id ;
+<info:fedora/fedora-system:def/model#state> ?state ;
+<info:fedora/fedora-system:def/model#state> <info:fedora/fedora-system:def/model#Active> ;
+
+}
+
+ORDER BY ?pid
+```
+
 
 ## Example 5: List all collections within the Digital Archive and their parents
 
