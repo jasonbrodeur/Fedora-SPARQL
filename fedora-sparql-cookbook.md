@@ -173,7 +173,13 @@ WHERE {
 
 ORDER BY ?pid		
 ```
-	
+# Notes
+How to identify different types
+* info:fedora/islandora:sp-audioCModel
+* info:fedora/islandora:sp_videoCModel
+* info:fedora/islandora:bookCModel, and 
+* info:fedora/islandora:iaBookCModel
+* info:fedora/islandora:sp_large_image_cmodel
 
 # Resources
 ## Islandora-specific
