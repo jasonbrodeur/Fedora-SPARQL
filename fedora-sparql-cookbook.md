@@ -153,6 +153,26 @@ WHERE {
 ORDER BY ?pid
 ```
 
+## Example 7: List all active items in digital archive, along with creation date:
+```
+PREFIX islandora-rels-ext: <http://islandora.ca/ontology/relsext#>
+
+SELECT ?pid ?label ?date
+FROM <#ri>
+WHERE {
+
+?pid <info:fedora/fedora-system:def/model#hasModel> <info:fedora/fedora-system:FedoraObject-3.0> ;
+    <fedora-model:label> ?label ;
+    <info:fedora/fedora-system:def/model#createdDate> ?date ;
+<info:fedora/fedora-system:def/model#state> ?state ;
+	<info:fedora/fedora-system:def/model#state> <info:fedora/fedora-system:def/model#Active> ;
+
+
+}
+
+ORDER BY ?pid		
+```
+	
 
 # Resources
 ## Islandora-specific
