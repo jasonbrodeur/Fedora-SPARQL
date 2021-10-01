@@ -154,7 +154,8 @@ ORDER BY ?pid
 ```
 
 ## Example 7: List all active items in digital archive, along with creation date:
-```
+
+```sparql
 PREFIX islandora-rels-ext: <http://islandora.ca/ontology/relsext#>
 
 SELECT ?pid ?label ?date
