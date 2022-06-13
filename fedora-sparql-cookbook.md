@@ -1,7 +1,5 @@
-<header>
-Digital Archive / Fedora SPARQL cookbook
-============
-</header>
+# Digital Archive / Fedora SPARQL cookbook 
+Used with the McMaster Islandora [Fedora Resource Index Query Service](http://dcs1.mcmaster.ca/fedora/risearch)	
 <main>
 
 # Examples 
