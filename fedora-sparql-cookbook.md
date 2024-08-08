@@ -171,6 +171,30 @@ WHERE {
 
 ORDER BY ?pid		
 ```
+
+## Example 8: List all active items in digital archive, along with creation date and content type:
+
+```sparql
+PREFIX islandora-rels-ext: <http://islandora.ca/ontology/relsext#>
+
+SELECT ?pid ?label ?date ?ctype
+FROM <#ri>
+WHERE {
+
+?pid <info:fedora/fedora-system:def/model#hasModel> <info:fedora/fedora-system:FedoraObject-3.0> ;
+    <fedora-model:label> ?label ;
+    <info:fedora/fedora-system:def/model#createdDate> ?date ;
+    <info:fedora/fedora-system:def/model#hasModel> ?ctype ;
+
+<info:fedora/fedora-system:def/model#state> ?state ;
+	<info:fedora/fedora-system:def/model#state> <info:fedora/fedora-system:def/model#Active> ;
+
+}
+
+ORDER BY ?pid		
+```
+
+
 # Notes
 How to identify different types
 * info:fedora/islandora:sp-audioCModel
