@@ -193,6 +193,39 @@ WHERE {
 
 ORDER BY ?pid		
 ```
+## Example 9: Gather lists of all types of objects
+- Run this iteratively, replacing `<info:fedora/islandora:bookCModel>` with the following items:
+  -  `<info:fedora/islandora:sp_videoCModel>` # video
+  -  `<info:fedora/islandora:sp_large_image_cmodel>` # image
+  -  `<info:fedora/islandora:sp-audioCModel>` # audio
+
+```sparql
+
+PREFIX islandora-rels-ext: <http://islandora.ca/ontology/relsext#> 
+
+SELECT ?pid ?label ?parent ?date 
+
+FROM <#ri> 
+
+WHERE { 
+
+?pid <info:fedora/fedora-system:def/model#hasModel> <info:fedora/islandora:bookCModel> ; 
+
+    <fedora-model:label> ?label ; 
+    <info:fedora/fedora-system:def/model#createdDate> ?date ; 
+    <info:fedora/fedora-system:def/model#state> ?state ; 
+    <info:fedora/fedora-system:def/relations-external#isMemberOfCollection> ?parent ; 
+    <info:fedora/fedora-system:def/model#state> <info:fedora/fedora-system:def/model#Active> ; 
+    #FILTER ( ?date < "2022-04-30T14:45:13.815-05:00"^^xsd:dateTime ) 
+} 
+
+ 
+ORDER BY ?pid	 
+
+```
+
+
+
 
 
 # Notes
